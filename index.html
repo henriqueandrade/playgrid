@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jogo da Velha</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container start-screen">
+    <h1>Jogo da Velha</h1>
+    <button class="btn" onclick="startGame()">Começar Jogo</button>
+    <button class="btn secondary" onclick="showInstructions()">Instruções</button>
+  </div>
+
+<div class="container hidden" id="game-board">
+  <h2>Tabuleiro do Jogo</h2>
+  <p id="current-player">Vez de: X</p>
+  <div class="board">
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+  </div>
+
+  <button class="btn-restart"onclick="location.reload()">Reiniciar Jogo</button>
+
+</div>
+
+
+<div id="instructions-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close" onclick="closeInstructions()">&times;</span>
+    <h2>Como jogar</h2>
+    <ul class="instruction-list">
+      <li>O jogo é disputado entre dois jogadores: <strong>X</strong> e <strong>O</strong>.</li>
+      <li>Os jogadores se revezam para marcar as células vazias em um tabuleiro <strong>3x3</strong>.</li>
+      <li>O primeiro a alinhar três símbolos na <strong>horizontal</strong>, <strong>vertical</strong> ou <strong>diagonal</strong> vence.</li>
+      <li>Se todas as células forem preenchidas sem um vencedor, o jogo termina <strong>empatado</strong>.</li>
+    </ul>
+  </div>
+</div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

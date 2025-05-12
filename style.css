@@ -1,0 +1,157 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border: 2px solid #333;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cell:hover {
+  background-color: #e0e0e0;
+}
+
+.container {
+  text-align: center;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 300px;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+.btn {
+  padding: 12px 24px;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  background-color: #ba01ff;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ba01ff;
+}
+
+
+.btn-restart {
+  padding: 12px 24px;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  background-color: #ba01ff;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-restart:hover {
+  background-color: #ba01ff;
+}
+.secondary {
+  background-color: #228dff;
+}
+
+.secondary:hover {
+  background-color: #228dff;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.instruction-list {
+  padding-left: 0;
+  text-align: left;
+}
+
+.instruction-list li {
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.instruction-list strong {
+  color:#ba01ff;;
+}
+
+#current-player {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
