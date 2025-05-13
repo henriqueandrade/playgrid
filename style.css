@@ -49,11 +49,12 @@ body {
   background-color: #fff;
   padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 300px;
 }
 
-h1, h2 {
+h1,
+h2 {
   color: #333;
 }
 
@@ -74,7 +75,6 @@ h1, h2 {
 .btn:hover {
   background-color: #ba01ff;
 }
-
 
 .btn-restart {
   padding: 12px 24px;
@@ -111,7 +111,7 @@ h1, h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
@@ -133,21 +133,18 @@ h1, h2 {
 }
 
 .instruction-list {
-  padding-left: 0;
   text-align: left;
+  padding-left: 20px;
 }
 
 .instruction-list li {
   margin-bottom: 12px;
   font-size: 16px;
   line-height: 1.5;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
 }
 
 .instruction-list strong {
-  color:#ba01ff;;
+  color: #ba01ff;
 }
 
 #current-player {
