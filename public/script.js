@@ -1,9 +1,14 @@
 window.addEventListener("DOMContentLoaded", () => {
   let currentPlayer = "X";
   let gameOver = false;
+  let rankingData = [];
+
+  loadRankingData();
+  updateRankingDisplay();
 
   window.startGame = function () {
     document.querySelector(".start-screen").classList.add("hidden");
+    document.querySelector(".ranking-section").classList.add("hidden");
     document.getElementById("game-board").classList.remove("hidden");
     resetGame();
   };
@@ -37,6 +42,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (checkWin()) {
       currentPlayerDisplay.textContent = `Jogador ${currentPlayer} venceu!`;
+      updateRanking(currentPlayer);
       gameOver = true;
       return;
     }
@@ -93,4 +99,64 @@ window.addEventListener("DOMContentLoaded", () => {
   cells.forEach((cell) => {
     cell.addEventListener("click", handleCellClick);
   });
+
+  function loadRankingData() {
+    const savedRanking = localStorage.getItem("ticTacToeRanking");
+    if (savedRanking) {
+      rankingData = JSON.parse(savedRanking);
+    }
+  }
+
+  function saveRankingData() {
+    localStorage.setItem("ticTacToeRanking", JSON.stringify(rankingData));
+  }
+
+  function updateRanking(winner) {
+    const playerIndex = rankingData.findIndex(
+      (player) => player.name === `Jogador ${winner}`
+    );
+
+    if (playerIndex !== -1) {
+      rankingData[playerIndex].wins++;
+    } else {
+      rankingData.push({
+        name: `Jogador ${winner}`,
+        wins: 1,
+        timestamp: Date.now(),
+      });
+    }
+
+    rankingData.sort((a, b) => {
+      if (a.wins !== b.wins) {
+        return b.wins - a.wins;
+      }
+      return a.timestamp - b.timestamp;
+    });
+
+    saveRankingData();
+    updateRankingDisplay();
+  }
+
+  function updateRankingDisplay() {
+    const rankingBody = document.getElementById("ranking-body");
+    rankingBody.innerHTML = "";
+
+    const topPlayers = rankingData.slice(0, 5);
+
+    if (topPlayers.length === 0) {
+      const emptyRow = document.createElement("tr");
+      emptyRow.innerHTML = `<td colspan="3">Sem partidas registradas</td>`;
+      rankingBody.appendChild(emptyRow);
+    } else {
+      topPlayers.forEach((player, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${player.name}</td>
+        <td>${player.wins}</td>
+      `;
+        rankingBody.appendChild(row);
+      });
+    }
+  }
 });

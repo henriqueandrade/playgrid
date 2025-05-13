@@ -7,12 +7,30 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container start-screen">
-      <h1>Jogo da Velha</h1>
-      <button class="btn" onclick="startGame()">Começar Jogo</button>
-      <button class="btn secondary" onclick="showInstructions()">
-        Instruções
-      </button>
+    <div>
+      <div class="container start-screen">
+        <h1>Jogo da Velha</h1>
+        <button class="btn" onclick="startGame()">Começar Jogo</button>
+        <button class="btn secondary" onclick="showInstructions()">
+          Instruções
+        </button>
+      </div>
+
+      <div class="ranking-section">
+        <h3>Ranking de Vitórias 🏆</h3>
+        <table id="ranking-table">
+          <thead>
+            <tr>
+              <th>Posição</th>
+              <th>Jogador</th>
+              <th>Vitórias</th>
+            </tr>
+          </thead>
+          <tbody id="ranking-body">
+            <!-- O ranking será preenchido dinamicamente pelo JavaScript -->
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="container hidden" id="game-board">
