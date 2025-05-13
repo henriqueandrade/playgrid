@@ -1,34 +1,34 @@
-window.addEventListener('DOMContentLoaded', () => {
-  let currentPlayer = 'X';
+window.addEventListener("DOMContentLoaded", () => {
+  let currentPlayer = "X";
   let gameOver = false;
 
   window.startGame = function () {
-    document.querySelector('.start-screen').classList.add('hidden');
-    document.getElementById('game-board').classList.remove('hidden');
+    document.querySelector(".start-screen").classList.add("hidden");
+    document.getElementById("game-board").classList.remove("hidden");
     resetGame();
   };
 
   window.showInstructions = function () {
-    document.getElementById('instructions-modal').classList.remove('hidden');
+    document.getElementById("instructions-modal").classList.remove("hidden");
   };
 
   window.closeInstructions = function () {
-    document.getElementById('instructions-modal').classList.add('hidden');
+    document.getElementById("instructions-modal").classList.add("hidden");
   };
 
-  const cells = document.querySelectorAll('.cell');
-  const currentPlayerDisplay = document.getElementById('current-player');
+  const cells = document.querySelectorAll(".cell");
+  const currentPlayerDisplay = document.getElementById("current-player");
 
   function updateCurrentPlayerDisplay() {
     currentPlayerDisplay.textContent = gameOver
-      ? ''
+      ? ""
       : `Vez do jogador: ${currentPlayer}`;
   }
 
   function handleCellClick(e) {
     const cell = e.target;
 
-    if (cell.textContent !== '' || gameOver) {
+    if (cell.textContent !== "" || gameOver) {
       return;
     }
 
@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
     updateCurrentPlayerDisplay();
   }
 
@@ -63,10 +63,10 @@ window.addEventListener('DOMContentLoaded', () => {
       [2, 5, 8],
       // Diagonais
       [0, 4, 8],
-      [2, 4, 6]
+      [2, 4, 6],
     ];
 
-    return winPatterns.some(pattern => {
+    return winPatterns.some((pattern) => {
       const [a, b, c] = pattern;
       return (
         cells[a].textContent === currentPlayer &&
@@ -77,20 +77,20 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function checkDraw() {
-    return [...cells].every(cell => cell.textContent !== '');
+    return [...cells].every((cell) => cell.textContent !== "");
   }
 
   function resetGame() {
-    cells.forEach(cell => {
-      cell.textContent = '';
-      cell.classList.remove('player-X', 'player-O');
+    cells.forEach((cell) => {
+      cell.textContent = "";
+      cell.classList.remove("player-X", "player-O");
     });
-    currentPlayer = 'X';
+    currentPlayer = "X";
     gameOver = false;
     updateCurrentPlayerDisplay();
   }
 
-  cells.forEach(cell => {
-    cell.addEventListener('click', handleCellClick);
+  cells.forEach((cell) => {
+    cell.addEventListener("click", handleCellClick);
   });
 });
