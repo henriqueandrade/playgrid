@@ -8,7 +8,7 @@ const path = require("path");
 describe("Testando jogabilidade do Playgrid", () => {
   beforeEach(async () => {
     const html = fs.readFileSync(
-      path.resolve(__dirname, "../public/index.html"),
+      path.resolve(__dirname, "../index.html"),
       "utf8"
     );
     document.open();
@@ -16,7 +16,7 @@ describe("Testando jogabilidade do Playgrid", () => {
     document.close();
 
     const scriptCode = fs.readFileSync(
-      path.resolve(__dirname, "../public/script.js"),
+      path.resolve(__dirname, "../assets/script.js"),
       "utf8"
     );
 

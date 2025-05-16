@@ -8,6 +8,8 @@
 
 Playgrid é um jogo da velha (tic-tac-toe) desenvolvido como parte de um projeto para o **Curso de Especialização em Engenharia de Software - MBA**. É uma implementação simples e funcional do clássico jogo de tabuleiro 3x3, onde dois jogadores se alternam marcando X e O até que um deles vença ou ocorra um empate.
 
+[![Jogar Agora](https://img.shields.io/badge/Jogar%20Agora-brightgreen?style=for-the-badge&logo=gamepad)](https://henriqueandrade.github.io/playgrid/)
+
 ## Tecnologias utilizadas
 
 - HTML5
